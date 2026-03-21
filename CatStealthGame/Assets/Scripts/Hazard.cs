@@ -1,9 +1,7 @@
 using UnityEngine;
-using UnityEngine.Playables;
 
-public class Die : MonoBehaviour
+public class Hazard : MonoBehaviour
 {
-    int lives;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,14 +14,11 @@ public class Die : MonoBehaviour
         
     }
 
-    void die()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        lives -= 1;
-        respawn();
-    }
-
-    void respawn()
-    {
-        
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponentInParent<PlayerResources>().die();
+        }
     }
 }
