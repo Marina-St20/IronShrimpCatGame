@@ -1,0 +1,3 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Image source="project://database/Assets/Misc/LivesRemaining.png?fileID=2800000&amp;guid=927e3b15d3931d244a986016f5071c66&amp;type=3#LivesRemaining"/>
+</ui:UXML>
