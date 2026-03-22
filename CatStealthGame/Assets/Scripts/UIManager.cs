@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,19 +12,19 @@ public class UIManager : MonoBehaviour
     public Text promptText;
 
     // The text object used to show temporary notifications to the player, such as when they take damage or collect a key
-    [SerializeField] private Text messageText;
+    [SerializeField] private TextMeshProUGUI messageText;
 
     // The image used to show the silver key in the player's inventory UI
     [SerializeField] private Image silverKeyImage;
 
     // The text used to show the number of silver keys the player has collected in the inventory UI
-    [SerializeField] private Text silverKeyText;
+    [SerializeField] private TextMeshProUGUI silverKeyText;
 
     // The image used to show the gold key in the player's inventory UI
     [SerializeField] private Image goldKeyImage;
 
     // The text used to show the number of gold keys the player has collected in the inventory UI
-    [SerializeField] private Text goldKeyText;
+    [SerializeField] private TextMeshProUGUI goldKeyText;
 
     // Reference to the player's resources, used to access the player's inventory and update the UI accordingly
     [SerializeField] private PlayerResources playerResources;
