@@ -1,8 +1,4 @@
-using System;
-using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerResources : MonoBehaviour
 {
@@ -16,7 +12,6 @@ public class PlayerResources : MonoBehaviour
     public int silverKeys = 0;
     public int goldKeys = 0;
 
-    // CHANGE: Use Sprite instead of Image for key icons
     [SerializeField] private Sprite silverKeySprite;
     [SerializeField] private Sprite goldKeySprite;
 
@@ -27,6 +22,13 @@ public class PlayerResources : MonoBehaviour
         startPos = transform.position;
         collider = GetComponent<Collider2D>();
         lights = false;
+
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.SetPlayerResources(this);
+            UIManager.Instance.RefreshInventoryUI();
+            UIManager.Instance.RefreshLivesUI();
+        }
     }
 
     void Update()
@@ -52,49 +54,64 @@ public class PlayerResources : MonoBehaviour
     {
         lives -= 1;
 
-        UIManager.Instance.RefreshLivesUI();
+        if (UIManager.Instance != null)
+            UIManager.Instance.RefreshLivesUI();
 
-        if (lives == 0)
+        if (lives <= 0)
         {
+            lives = 0;
             Gameover();
         }
-        Respawn();
+        else
+        {
+            Respawn();
+        }
     }
 
     void Respawn()
     {
         transform.position = startPos;
-        //Time.timeScale = 0;
-        //Task.Delay(1000);
-        //Time.timeScale = 1f;
     }
 
     void Gameover()
     {
-
+        Debug.Log("Game Over");
     }
 
     public void CollectSilverKey()
     {
         silverKeys++;
-        UIManager.Instance.RefreshInventoryUI();
+
+        if (UIManager.Instance != null)
+            UIManager.Instance.RefreshInventoryUI();
     }
 
     public void CollectGoldKey()
     {
         goldKeys++;
-        UIManager.Instance.RefreshInventoryUI();
+
+        if (UIManager.Instance != null)
+            UIManager.Instance.RefreshInventoryUI();
     }
 
-    public bool HasSilverKey() => silverKeys > 0;
-    public bool HasGoldKeys() => goldKeys >= 3;
+    public bool HasSilverKey()
+    {
+        return silverKeys > 0;
+    }
+
+    public bool HasGoldKeys()
+    {
+        return goldKeys >= 3;
+    }
 
     public void UseSilverKey()
     {
         if (HasSilverKey())
         {
             silverKeys--;
-            UIManager.Instance.RefreshInventoryUI();
+
+            if (UIManager.Instance != null)
+                UIManager.Instance.RefreshInventoryUI();
         }
     }
 
@@ -103,11 +120,19 @@ public class PlayerResources : MonoBehaviour
         if (HasGoldKeys())
         {
             goldKeys -= 3;
-            UIManager.Instance.RefreshInventoryUI();
+
+            if (UIManager.Instance != null)
+                UIManager.Instance.RefreshInventoryUI();
         }
     }
 
-    // CHANGE: Return Sprites instead of Images
-    public Sprite GetSilverKeySprite() => silverKeySprite;
-    public Sprite GetGoldKeySprite() => goldKeySprite;
+    public Sprite GetSilverKeySprite()
+    {
+        return silverKeySprite;
+    }
+
+    public Sprite GetGoldKeySprite()
+    {
+        return goldKeySprite;
+    }
 }

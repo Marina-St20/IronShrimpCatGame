@@ -18,56 +18,84 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+        }
         else
+        {
             Destroy(gameObject);
+        }
     }
 
-    void Start()
+    private void Start()
     {
+        FindPlayerResources();
         RefreshInventoryUI();
-        RefreshLivesUI(); // <-- ADD THIS
+        RefreshLivesUI();
     }
 
-    // Call this whenever keys change
+    private void FindPlayerResources()
+    {
+        if (playerResources != null) return;
+
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            playerResources = player.GetComponent<PlayerResources>();
+        }
+    }
+
+    public void SetPlayerResources(PlayerResources resources)
+    {
+        playerResources = resources;
+    }
+
     public void RefreshInventoryUI()
     {
-        // Try to find player if not set
-        if (playerResources == null)
+        FindPlayerResources();
+
+        if (playerResources == null) return;
+
+        if (silverKeyImage != null)
         {
-            GameObject player = GameObject.FindWithTag("Player");
-            if (player != null)
-                playerResources = player.GetComponent<PlayerResources>();
+            Sprite silverSprite = playerResources.GetSilverKeySprite();
+            if (silverSprite != null)
+            {
+                silverKeyImage.sprite = silverSprite;
+                silverKeyImage.enabled = true;
+            }
         }
 
-        if (playerResources == null) return; // still not found
+        if (silverKeyText != null)
+        {
+            silverKeyText.text = playerResources.silverKeys.ToString();
+        }
 
-        // Silver keys
-        Sprite silverSprite = playerResources.GetSilverKeySprite(); // <-- Sprite, not Image
-        if (silverSprite != null)
-            silverKeyImage.sprite = silverSprite;
+        if (goldKeyImage != null)
+        {
+            Sprite goldSprite = playerResources.GetGoldKeySprite();
+            if (goldSprite != null)
+            {
+                goldKeyImage.sprite = goldSprite;
+                goldKeyImage.enabled = true;
+            }
+        }
 
-        silverKeyText.text = playerResources.silverKeys.ToString();
-
-        // Gold keys
-        Sprite goldSprite = playerResources.GetGoldKeySprite(); // <-- Sprite, not Image
-        if (goldSprite != null)
-            goldKeyImage.sprite = goldSprite;
-
-        goldKeyText.text = playerResources.goldKeys.ToString();
+        if (goldKeyText != null)
+        {
+            goldKeyText.text = playerResources.goldKeys.ToString();
+        }
     }
 
     public void RefreshLivesUI()
     {
-        if (playerResources == null)
-        {
-            GameObject player = GameObject.FindWithTag("Player");
-            if (player != null)
-                playerResources = player.GetComponent<PlayerResources>();
-        }
+        FindPlayerResources();
 
         if (playerResources == null) return;
 
-        livesText.text = "Lives: " + playerResources.lives.ToString();
+        if (livesText != null)
+        {
+            livesText.text = "Lives: " + playerResources.lives.ToString();
+        }
     }
 }
