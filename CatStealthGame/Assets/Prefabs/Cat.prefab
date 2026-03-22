@@ -151,6 +151,8 @@ GameObject:
   - component: {fileID: 7431340855387242668}
   - component: {fileID: 430686828587414920}
   - component: {fileID: 4155732560122218909}
+  - component: {fileID: 4920106088548117402}
+  - component: {fileID: 5017112918825654638}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Player
@@ -287,9 +289,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerResources
   lives: 9
   stamina: 2000
-  keys: 0
   startPos: {x: 0, y: 0}
   lights: 0
+  silverKeys: 0
+  goldKeys: 0
+  silverKeySprite: {fileID: 0}
+  goldKeySprite: {fileID: 0}
+--- !u!114 &4920106088548117402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652204346368113288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c2f8129b80ec541b154e0578fffc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  leftflashlight: {fileID: 3928811866121167437}
+  rightflashlight: {fileID: 5244720002509978350}
+  playerResources: {fileID: 4155732560122218909}
+--- !u!114 &5017112918825654638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652204346368113288}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dec4e85257844445a11be3d84e4fcb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatFlashLight
+  head: {fileID: 0}
+  leftEye: {fileID: 0}
+  rightEye: {fileID: 0}
+  forwardOffset: 0.03
+  angleOffset: 0
 --- !u!1 &676636570262079888
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +642,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6922869567850684586}
   - component: {fileID: 3928811866121167437}
-  - component: {fileID: 7084543344318429490}
   m_Layer: 10
   m_Name: LeftEye
   m_TagString: Untagged
@@ -680,23 +716,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!114 &7084543344318429490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2123508135148211776}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dec4e85257844445a11be3d84e4fcb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CatFlashLight
-  head: {fileID: 0}
-  leftEye: {fileID: 0}
-  rightEye: {fileID: 0}
-  forwardOffset: 0.03
-  angleOffset: 0
 --- !u!1 &2461278925122605520
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,7 +940,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5952745623967037779}
   - component: {fileID: 5244720002509978350}
-  - component: {fileID: 5109107505009017306}
   m_Layer: 10
   m_Name: RightEye
   m_TagString: Untagged
@@ -996,23 +1014,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!114 &5109107505009017306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4676217415559855917}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dec4e85257844445a11be3d84e4fcb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CatFlashLight
-  head: {fileID: 0}
-  leftEye: {fileID: 0}
-  rightEye: {fileID: 0}
-  forwardOffset: 0.03
-  angleOffset: 0
 --- !u!1 &4759016863966249018
 GameObject:
   m_ObjectHideFlags: 0

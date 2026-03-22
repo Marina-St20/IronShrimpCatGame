@@ -542,9 +542,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerResources
   lives: 9
   stamina: 2000
-  keys: 0
   startPos: {x: 0, y: 0}
   lights: 0
+  silverKeys: 0
+  goldKeys: 0
+  silverKeySprite: {fileID: 0}
+  goldKeySprite: {fileID: 0}
 --- !u!1001 &1664132302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -596,6 +599,10 @@ PrefabInstance:
     - target: {fileID: 7251219161010527832, guid: a17c78f270a0cb9478c24e76bfc22beb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646767956626467888, guid: a17c78f270a0cb9478c24e76bfc22beb, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

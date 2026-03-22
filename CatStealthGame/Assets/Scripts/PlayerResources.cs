@@ -6,7 +6,9 @@ using UnityEngine;
 public class PlayerResources : MonoBehaviour
 {
     public int lives = 9;
-    public int stamina = 2000;
+    public float stamina = 2000f;
+    public float drainRate = 500f;
+    public float regenRate = 300f;
     //public int keys = 0;
     public Vector2 startPos;
     public bool lights;
@@ -36,11 +38,18 @@ public class PlayerResources : MonoBehaviour
     {
         if (lights)
         {
-            stamina = Math.Max(0, stamina - 1);
+            stamina -= drainRate * Time.deltaTime;
+
+            if (stamina <= 0)
+            {
+                stamina = 0;
+                lights = false;
+            }
         }
         else
         {
-            stamina = Math.Min(2000, stamina + 1);
+            stamina += regenRate * Time.deltaTime;
+            stamina = Mathf.Clamp(stamina, 0, 2000f);
         }
     }
 
