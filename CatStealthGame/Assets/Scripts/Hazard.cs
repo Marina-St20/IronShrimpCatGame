@@ -18,7 +18,7 @@ public class Hazard : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponentInParent<PlayerResources>().die();
+            collision.GetComponentInParent<PlayerResources>().Die();
         }
     }
 }

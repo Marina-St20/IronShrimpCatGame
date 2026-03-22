@@ -7,9 +7,19 @@ public class PlayerResources : MonoBehaviour
 {
     public int lives = 9;
     public int stamina = 2000;
-    public int keys = 0;
+    //public int keys = 0;
     public Vector2 startPos;
     public bool lights;
+
+    // The number of silver keys the player has collected
+    public int silverKeys = 0;
+    // The number of gold keys the player has collected
+    public int goldKeys = 0;
+
+    // The sprites for the silver keys, used in the UI to show the player's inventory
+    [SerializeField] private Sprite silverKeySprite;
+    // The sprites for the gold keys, used in the UI to show the player's inventory
+    [SerializeField] private Sprite goldKeySprite;
 
     private new Collider2D collider;
 
@@ -34,18 +44,18 @@ public class PlayerResources : MonoBehaviour
         }
     }
 
-    public void die()
+    public void Die()
     {
         lives -= 1;
         if (lives == 0)
         {
-            gameover();
+            Gameover();
         }
-        respawn();
+        Respawn();
 
     }
 
-    void respawn()
+    void Respawn()
     {
         transform.position = startPos;
         // Not working ig
@@ -54,19 +64,66 @@ public class PlayerResources : MonoBehaviour
         //Time.timeScale = 1f;
     }
 
-    void gameover()
+    void Gameover()
     {
 
     }
 
-    public void openCage()
+    // public void openCage()
+    // {
+    //     // Cage.open();
+    //     keys--;
+    // }
+
+    // public void collectKey()
+    // {
+    //     keys++;
+    // }
+
+    // Updates the player's silver key count and refreshes the inventory UI to reflect the change
+    public void CollectSilverKey()
     {
-        // Cage.open();
-        keys--;
+        silverKeys++;
+
+        UIManager.Instance.RefreshInventoryUI();
     }
 
-    public void collectKey()
+    // Updates the player's gold key count and refreshes the inventory UI to reflect the change
+    public void CollectGoldKey()
     {
-        keys++;
+        goldKeys++;
+        UIManager.Instance.RefreshInventoryUI();
     }
+
+    // Checks if the player has at least one silver key
+    public bool HasSilverKey() => silverKeys > 0;
+
+    // Checks if the player has at least three gold keys
+    public bool HasGoldKeys() => goldKeys >= 3;
+
+    // Uses one silver key if the player has any, and refreshes the inventory UI
+    public void UseSilverKey()
+    {
+        if (HasSilverKey())
+        {
+            silverKeys--;
+            UIManager.Instance.RefreshInventoryUI();
+        }
+    }
+
+    // Uses three gold keys if the player has at least three, and refreshes the inventory UI
+    public void UseGoldKeys()
+    {
+        if (HasGoldKeys())
+        {
+            goldKeys -= 3;
+            UIManager.Instance.RefreshInventoryUI();
+        }
+    }
+
+    // Returns the sprite for the silver key, used in the UI to show the player's inventory
+    public Sprite GetSilverKeySprite() => silverKeySprite;
+
+    // Returns the sprite for the gold key, used in the UI to show the player's inventory
+    public Sprite GetGoldKeySprite() => goldKeySprite;
 }
