@@ -289,6 +289,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerResources
   lives: 9
   stamina: 2000
+  drainRate: 300
+  regenRate: 200
   startPos: {x: 0, y: 0}
   lights: 0
   silverKeys: 0

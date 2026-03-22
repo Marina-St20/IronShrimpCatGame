@@ -542,6 +542,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerResources
   lives: 9
   stamina: 2000
+  drainRate: 500
+  regenRate: 300
   startPos: {x: 0, y: 0}
   lights: 0
   silverKeys: 0
@@ -617,6 +619,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 331821363438704913, guid: 16fb191f9f3dce14fac7587b857af899, type: 3}
+      propertyPath: playerResources
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5461932235806864620, guid: 16fb191f9f3dce14fac7587b857af899, type: 3}
       propertyPath: m_Name
       value: Key

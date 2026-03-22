@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1819116676684815114, guid: e478fcf7f5a41a841ba6276a42ab3d20, type: 3}
+  m_Sprite: {fileID: 1819116676684815114, guid: 41444e284cd5c4501875d5c426f18271, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,6 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2f5149235589b4ca20844dedd586c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cage
+  isFinalCage: 0
+  OpenCagePrefab: {fileID: 0}
 --- !u!61 &2841222713423426891
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,7 +161,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8297128090897343405}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
