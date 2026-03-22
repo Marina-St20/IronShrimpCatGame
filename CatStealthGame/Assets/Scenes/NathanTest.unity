@@ -805,7 +805,7 @@ MonoBehaviour:
   keys: 0
   startPos: {x: 0, y: 0}
   lights: 0
---- !u!1001 &2015120883
+--- !u!1001 &1958212008
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -813,29 +813,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1115684847607280, guid: 1502803881ebab543be6a2e02fefd958, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 652204346368113288, guid: 1502803881ebab543be6a2e02fefd958, type: 3}
       propertyPath: m_Name
-      value: Cat (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 652204346368113288, guid: 1502803881ebab543be6a2e02fefd958, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6320212974304908941, guid: 1502803881ebab543be6a2e02fefd958, type: 3}
-      propertyPath: m_TagString
-      value: Player
+      value: Cat (2)
       objectReference: {fileID: 0}
     - target: {fileID: 7828815423063292217, guid: 1502803881ebab543be6a2e02fefd958, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0314332
+      value: -1.06696
       objectReference: {fileID: 0}
     - target: {fileID: 7828815423063292217, guid: 1502803881ebab543be6a2e02fefd958, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4770598
+      value: -1.19211
       objectReference: {fileID: 0}
     - target: {fileID: 7828815423063292217, guid: 1502803881ebab543be6a2e02fefd958, type: 3}
       propertyPath: m_LocalPosition.z
@@ -998,4 +986,4 @@ SceneRoots:
   - {fileID: 165372253}
   - {fileID: 8557845665680705289}
   - {fileID: 1711276385922698500}
-  - {fileID: 2015120883}
+  - {fileID: 1958212008}
