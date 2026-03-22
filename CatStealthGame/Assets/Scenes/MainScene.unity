@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 202643223}
   - component: {fileID: 202643224}
   m_Layer: 10
-  m_Name: RightEye
+  m_Name: Left Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 493618086}
   - component: {fileID: 493618087}
   m_Layer: 10
-  m_Name: LeftEye
+  m_Name: FlashLight (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
