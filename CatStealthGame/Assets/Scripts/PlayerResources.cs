@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerResources : MonoBehaviour
 {
@@ -75,7 +76,12 @@ public class PlayerResources : MonoBehaviour
 
     void Gameover()
     {
-        Debug.Log("Game Over");
+        SceneManager.LoadScene("LoseScreen");
+    }
+
+    public void WinGame()
+    {
+        SceneManager.LoadScene("WinScreen");
     }
 
     public void CollectSilverKey()
