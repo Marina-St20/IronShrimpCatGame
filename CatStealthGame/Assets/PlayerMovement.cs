@@ -5,10 +5,13 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public bool canMove = true;
 
-    private Rigidbody2D rb;
-    private Vector2 movement;
+    // Drag your VisualRoot here
+    public Transform visualRoot;
 
-    void Start()
+    private Rigidbody2D rb;
+    private Vector2 input;
+
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -16,14 +19,30 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (!canMove)
+        {
+            input = Vector2.zero;
             return;
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        movement = movement.normalized;
+        }
+
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+
+        input = new Vector2(x, y).normalized;
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = movement * moveSpeed;
+        if (visualRoot == null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        Vector2 forward = visualRoot.up;
+        Vector2 right = visualRoot.right;
+
+        Vector2 moveDirection = (right * input.x + forward * input.y).normalized;
+
+        rb.linearVelocity = moveDirection * moveSpeed;
     }
 }

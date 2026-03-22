@@ -1892,6 +1892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
   canMove: 1
+  visualRoot: {fileID: 1959190578}
 --- !u!114 &2059225837
 MonoBehaviour:
   m_ObjectHideFlags: 0
