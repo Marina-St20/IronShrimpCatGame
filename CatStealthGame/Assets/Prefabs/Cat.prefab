@@ -150,9 +150,10 @@ GameObject:
   - component: {fileID: 8763398605016491554}
   - component: {fileID: 7431340855387242668}
   - component: {fileID: 430686828587414920}
+  - component: {fileID: 4155732560122218909}
   m_Layer: 0
   m_Name: Cat
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -272,6 +273,23 @@ MonoBehaviour:
   wallBlendInSpeed: 6
   wallBlendOutSpeed: 4
   invertBend: 0
+--- !u!114 &4155732560122218909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652204346368113288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033c442655634a940a6453f05653c72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerResources
+  lives: 9
+  stamina: 2000
+  keys: 0
+  startPos: {x: 0, y: 0}
+  lights: 0
 --- !u!1 &676636570262079888
 GameObject:
   m_ObjectHideFlags: 0
