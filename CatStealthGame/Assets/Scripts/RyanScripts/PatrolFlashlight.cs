@@ -32,7 +32,7 @@ public class PatrolFlashlight : MonoBehaviour
             {
                 if(CanSeePlayer())
                 {
-                    Player.GetComponent<PlayerResources>().Die();
+                    Player.GetComponentInParent<PlayerResources>().Die();
                 }
             }
         }
