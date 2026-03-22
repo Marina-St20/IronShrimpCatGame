@@ -4,19 +4,22 @@ using UnityEngine.Rendering.Universal;
 public class PatrolFlashlightVisual : MonoBehaviour
 {
     [SerializeField] private Light2D light2D;
-    void Awake()
+
+    private void Awake()
     {
-        if(light2D == null)
+        if (light2D == null)
         {
             light2D = GetComponent<Light2D>();
         }
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private void Start()
     {
         PatrolFlashlight patrolFlashlight = GetComponent<PatrolFlashlight>();
 
-        light2D.pointLightInnerRadius = 0;
+        if (light2D == null || patrolFlashlight == null) return;
+
+        light2D.pointLightInnerRadius = 0f;
         light2D.pointLightOuterRadius = patrolFlashlight.viewDistance;
         light2D.pointLightInnerAngle = patrolFlashlight.viewAngle;
         light2D.pointLightOuterAngle = patrolFlashlight.viewAngle;

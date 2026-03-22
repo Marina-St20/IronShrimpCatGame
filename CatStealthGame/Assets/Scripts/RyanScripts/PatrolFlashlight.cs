@@ -1,55 +1,77 @@
-using System;
 using UnityEngine;
 
 public class PatrolFlashlight : MonoBehaviour
 {
-    [SerializeField] public float viewDistance = 2f;
-    [SerializeField] public float viewAngle = 45f;
-    private LayerMask wallLayerMask;
-    private GameObject Player;
+    [SerializeField] public float viewDistance = 5f;
+    [SerializeField] public float viewAngle = 90f; // full cone angle
+    [SerializeField] private LayerMask obstacleMask;
+    [SerializeField] private float beamRadius = 0.1f;
+    [SerializeField] private bool debugLogs = true;
 
-    void Awake()
+    private Transform playerTransform;
+    private PlayerResources playerResources;
+
+    private void Start()
     {
-        wallLayerMask = LayerMask.GetMask("Wall");
-    }
+        FindPlayer();
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        Player = GameObject.FindWithTag("Player");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Vector2 toPlayer = Player.transform.position - transform.position;
-
-        if(toPlayer.magnitude < viewDistance)
+        if (obstacleMask == 0)
         {
-            float angle = Vector2.Angle(transform.up, toPlayer);
-
-            if(angle < viewAngle)
-            {
-                if(CanSeePlayer())
-                {
-                    Player.GetComponent<PlayerResources>().Die();
-                }
-            }
+            obstacleMask = LayerMask.GetMask("Movable", "Wall", "Walls");
         }
     }
 
-    private bool CanSeePlayer()
+    private void Update()
     {
+        if (playerTransform == null || playerResources == null)
+        {
+            FindPlayer();
+            if (playerTransform == null || playerResources == null) return;
+        }
+
         Vector2 origin = transform.position;
-        Vector2 dir = (Player.transform.position - transform.position).normalized;
-        float dist = Vector2.Distance(Player.transform.position, transform.position);
-        RaycastHit2D raycastHit = Physics2D.Raycast(origin, dir, dist, wallLayerMask);
+        Vector2 toPlayer = (Vector2)playerTransform.position - origin;
 
-        if(raycastHit)
+        if (toPlayer.sqrMagnitude > viewDistance * viewDistance)
+            return;
+
+        float halfAngle = viewAngle * 0.5f;
+        float angleToPlayer = Vector2.Angle(transform.up, toPlayer.normalized);
+
+        if (angleToPlayer > halfAngle)
+            return;
+
+        RaycastHit2D hit = Physics2D.CircleCast(origin, beamRadius, toPlayer.normalized, toPlayer.magnitude, obstacleMask);
+
+        if (hit.collider != null)
         {
-            return false;
+            if (debugLogs)
+                Debug.Log("Beam blocked by: " + hit.collider.name);
+
+            return;
         }
 
-        return true;
+        if (debugLogs)
+            Debug.Log("Player hit by patrol beam");
+
+        playerResources.Die();
+    }
+
+    private void FindPlayer()
+    {
+        GameObject playerObj = GameObject.FindWithTag("Player");
+        if (playerObj == null) return;
+
+        playerTransform = playerObj.transform;
+
+        playerResources =
+            playerObj.GetComponent<PlayerResources>() ??
+            playerObj.GetComponentInParent<PlayerResources>() ??
+            playerObj.GetComponentInChildren<PlayerResources>();
+
+        if (debugLogs && playerResources == null)
+        {
+            Debug.LogWarning("Player found, but PlayerResources was not found on it, parent, or children.");
+        }
     }
 }
