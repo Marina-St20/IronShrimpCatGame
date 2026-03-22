@@ -185,7 +185,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0077821985, y: -0.17044857}
+  m_Offset: {x: 0.0077821985, y: -0.75}
   m_Size: {x: 0.20773496, y: 0.29939204}
   m_Direction: 0
 --- !u!1 &190677616
@@ -322,8 +322,9 @@ GameObject:
   m_Component:
   - component: {fileID: 202643223}
   - component: {fileID: 202643224}
+  - component: {fileID: 202643225}
   m_Layer: 10
-  m_Name: Left Eye
+  m_Name: RightEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,7 +339,7 @@ Transform:
   m_GameObject: {fileID: 202643222}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.09, y: 1.475, z: 0}
+  m_LocalPosition: {x: 0.09, y: 0.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -396,6 +397,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &202643225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202643222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dec4e85257844445a11be3d84e4fcb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatFlashLight
+  dir: {x: 0, y: 0, z: 0, w: 0}
+  head: {fileID: 0}
+  offset: {fileID: 0}
 --- !u!1 &348814560
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +438,7 @@ Transform:
   m_GameObject: {fileID: 348814560}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -462,7 +478,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.65}
+  m_Offset: {x: 0, y: 0.1}
   m_Radius: 0.15
 --- !u!1 &474742768
 GameObject:
@@ -565,8 +581,9 @@ GameObject:
   m_Component:
   - component: {fileID: 493618086}
   - component: {fileID: 493618087}
+  - component: {fileID: 493618088}
   m_Layer: 10
-  m_Name: FlashLight (1)
+  m_Name: LeftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -581,7 +598,7 @@ Transform:
   m_GameObject: {fileID: 493618085}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.082, y: 1.473, z: 0}
+  m_LocalPosition: {x: -0.09, y: 0.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -639,6 +656,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &493618088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493618085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dec4e85257844445a11be3d84e4fcb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatFlashLight
+  dir: {x: 0, y: 0, z: 0, w: 0}
+  head: {fileID: 0}
+  offset: {fileID: 0}
 --- !u!1 &745035172
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,7 +737,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.27}
+  m_Offset: {x: 0, y: -0.34}
   m_Size: {x: 0.25, y: 0.67}
   m_Direction: 0
 --- !u!1 &767548173
@@ -733,7 +765,7 @@ Transform:
   m_GameObject: {fileID: 767548173}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.65, z: 0}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1026,8 +1058,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403581445}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.036435373, w: 0.99933606}
-  m_LocalPosition: {x: 0.03, y: 0.27, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.029999971, y: -0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1488,7 +1520,7 @@ Transform:
   m_GameObject: {fileID: 1871311774}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
   m_LocalScale: {x: 0.14, y: 0.16, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1753,7 +1785,7 @@ Transform:
   m_GameObject: {fileID: 2031737218}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1773,7 +1805,6 @@ GameObject:
   - component: {fileID: 2059225836}
   - component: {fileID: 2059225837}
   - component: {fileID: 2059225839}
-  - component: {fileID: 2059225840}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -1898,18 +1929,6 @@ MonoBehaviour:
   wallBlendInSpeed: 6
   wallBlendOutSpeed: 4
   invertBend: 0
---- !u!114 &2059225840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059225831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dec4e85257844445a11be3d84e4fcb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
