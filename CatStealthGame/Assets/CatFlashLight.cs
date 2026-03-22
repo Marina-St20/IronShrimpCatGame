@@ -1,24 +1,29 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CatFlashLight : MonoBehaviour
 {
-    public Quaternion dir;
     public Transform head;
-    public Transform offset;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        head = GetComponentInParent<CatAimController>().headPivot;
-        offset.position = GetComponentInParent<Transform>().position - transform.position;
-    }
+    public Transform leftEye;
+    public Transform rightEye;
 
-    // Update is called once per frame
-    void Update()
+    // how far the light should start in front of the eyes
+    public float forwardOffset = 0.03f;
+
+    // use this if the light cone sprite/light points the wrong way
+    public float angleOffset = 0f;
+
+    void LateUpdate()
     {
-        head = GetComponentInParent<CatAimController>().headPivot;
-        dir = (Quaternion)head.rotation;
-        transform.rotation = dir;
-        transform.position = head.position + offset.position;
+        if (head == null || leftEye == null || rightEye == null)
+            return;
+
+        // midpoint between both eyes
+        Vector3 eyeMid = (leftEye.position + rightEye.position) * 0.5f;
+
+        // your cat/head faces UP by default in your aiming setup
+        Vector3 origin = eyeMid + head.up * forwardOffset;
+
+        transform.position = origin;
+        transform.rotation = head.rotation * Quaternion.Euler(0f, 0f, angleOffset);
     }
 }
