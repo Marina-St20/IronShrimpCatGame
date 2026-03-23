@@ -95,7 +95,7 @@ public class UIManager : MonoBehaviour
 
         if (livesText != null)
         {
-            livesText.text = "Lives: " + playerResources.lives.ToString();
+            livesText.text = "x" + playerResources.lives.ToString();
         }
     }
 }
