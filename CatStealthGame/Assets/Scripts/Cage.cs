@@ -34,7 +34,8 @@ public class Cage : MonoBehaviour
         // Spawn open cage prefab
         if (OpenCagePrefab != null)
         {
-            Instantiate(OpenCagePrefab, transform.position, transform.rotation);
+            GameObject openCage = Instantiate(OpenCagePrefab, transform.position, transform.rotation);
+            openCage.transform.localScale = transform.localScale;
         }
 
         // Destroy the old cage object
