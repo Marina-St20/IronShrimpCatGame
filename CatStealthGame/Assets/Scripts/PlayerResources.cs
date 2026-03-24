@@ -76,12 +76,14 @@ public class PlayerResources : MonoBehaviour
 
     void Gameover()
     {
-        SceneManager.LoadScene("LoseScreen");
+        //SceneManager.LoadScene("LoseScreen");
+        UIManager.Instance.LoadLoseScreen();
     }
 
     public void WinGame()
     {
-        SceneManager.LoadScene("WinScreen");
+        //SceneManager.LoadScene("WinScene");
+        UIManager.Instance.LoadWinScreen();
     }
 
     public void CollectSilverKey()
@@ -129,6 +131,7 @@ public class PlayerResources : MonoBehaviour
 
             if (UIManager.Instance != null)
                 UIManager.Instance.RefreshInventoryUI();
+            WinGame();
         }
     }
 

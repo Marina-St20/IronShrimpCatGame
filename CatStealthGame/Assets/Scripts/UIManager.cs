@@ -1,6 +1,7 @@
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,6 +15,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI livesText;
 
     private PlayerResources playerResources;
+
+    public void LoadWinScreen()
+    {
+        SceneManager.LoadScene("WinScene");
+    }
+
+    public void LoadLoseScreen()
+    {
+        SceneManager.LoadScene("LoseScreen");
+    }
 
     private void Awake()
     {

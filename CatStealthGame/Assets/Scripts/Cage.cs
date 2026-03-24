@@ -28,6 +28,7 @@ public class Cage : MonoBehaviour
         isUnlocked = true;
         if (isFinalCage)
             playerResources.UseGoldKeys();
+
         else
             playerResources.UseSilverKey();
 
