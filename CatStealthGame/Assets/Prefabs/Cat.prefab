@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 4155732560122218909}
   - component: {fileID: 4920106088548117402}
   - component: {fileID: 5017112918825654638}
+  - component: {fileID: 8528196431229665122}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Player
@@ -210,7 +211,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652204346368113288}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 514d303c191219b48ae49b35120f1649, type: 3}
   m_Name: 
@@ -288,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerResources
   lives: 9
-  stamina: 2000
+  stamina: 3000
   drainRate: 300
   regenRate: 200
   startPos: {x: 0, y: 0}
@@ -329,6 +330,20 @@ MonoBehaviour:
   rightEye: {fileID: 0}
   forwardOffset: 0.03
   angleOffset: 0
+--- !u!114 &8528196431229665122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652204346368113288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cddb32b782c837e418b219c31844ba41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OldPlayerMovement
+  moveSpeed: 5
+  canMove: 1
 --- !u!1 &676636570262079888
 GameObject:
   m_ObjectHideFlags: 0
