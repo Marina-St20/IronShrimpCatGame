@@ -35,11 +35,19 @@ As a cat, stealthily navigate the dark, underground sewers the rats call home. W
 ## Credits
 
 Marina Scott, Programmer/Designer
+
 Maksym Taran, Programmer
+
 Phoebe Le, Programmer
+
 Ryan Nip, Programmer
+
 Nathan Montoya, Programmer
+
 Matthew Wong, Flex Designer
+
 Emma Wencel, Programmer
+
 Chelsea Doan, 2D Artist
+
 Lily Wang, 2D Artist
